@@ -1941,6 +1941,58 @@ section,
   color: var(--accent-color);
 }
 
+.about-section {
+  padding: 60px 0;
+  background-color: var(--background-color);
+}
+
+.text-content {
+  padding-right: 30px;
+}
+
+.text-content .content-subtitle {
+  display: block;
+  font-size: 14px;
+  color: var(--default-color);
+  margin-bottom: 10px;
+}
+
+.text-content .content-title {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--heading-color);
+  margin-bottom: 20px;
+}
+
+.text-content p {
+  font-size: 16px;
+  color: var(--default-color);
+  margin-bottom: 15px;
+}
+
+.text-content .btn-get-started {
+  background-color: #28a745;
+  color: #fff;
+  padding: 10px 30px;
+  border-radius: 50px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.text-content .btn-get-started:hover {
+  background-color: #218838;
+}
+
+.img-wrap {
+  text-align: right;
+}
+
+.img-wrap img {
+  max-width: 100%;
+  border-radius: 10px;
+}
+
+
 /*--------------------------------------------------------------
 # Starter Section Section
 --------------------------------------------------------------*/
