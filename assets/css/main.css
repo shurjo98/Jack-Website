@@ -1128,11 +1128,13 @@ section,
 }
 
 .clients .client-logo img {
+  max-height: 100px; /* Set a uniform height for all logos */
+  max-width: 100%; /* Ensure the width doesn't exceed the container */
+  object-fit: contain; /* Maintain aspect ratio, ensuring the image fits within the box */
   padding: 20px 40px;
-  max-width: 90%;
   transition: 0.3s;
   opacity: 0.5;
-  filter: grayscale(100);
+  filter: grayscale(100%);
 }
 
 .clients .client-logo img:hover {
@@ -1142,6 +1144,7 @@ section,
 
 @media (max-width: 640px) {
   .clients .client-logo img {
+    max-height: 70px; /* Adjust height for smaller screens */
     padding: 20px;
   }
 }
