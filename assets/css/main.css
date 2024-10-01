@@ -1218,7 +1218,7 @@ section,
 # Clients Section
 --------------------------------------------------------------*/
 .clients {
-  padding: 20px 0;
+  padding: 100px 0;
 }
 
 .clients .client-logo {
@@ -1228,7 +1228,6 @@ section,
   overflow: hidden; /* Hides any overflow */
   height: 100px; /* Fixed height for uniformity */
   width: 150px; /* Fixed width for uniformity */
-  background-color: #f8f9fa; /* Optional: Light background for contrast */
   padding: 10px; /* Optional: Padding around logos */
 }
 
