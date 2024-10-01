@@ -1260,8 +1260,8 @@ section,
   justify-content: center;
   align-items: center;
   overflow: hidden; /* Hides any overflow */
-  height: 100px; /* Fixed height for uniformity */
-  width: 150px; /* Fixed width for uniformity */
+  height: 200px; /* Fixed height for uniformity */
+  width: 200px; /* Fixed width for uniformity */
   padding: 10px; /* Optional: Padding around logos */
 }
 
