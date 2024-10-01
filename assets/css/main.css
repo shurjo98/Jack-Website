@@ -1262,7 +1262,7 @@ section,
   overflow: hidden; /* Hides any overflow */
   height: 200px; /* Fixed height for uniformity */
   width: 200px; /* Fixed width for uniformity */
-  padding: 10px; /* Optional: Padding around logos */
+  padding: 30px; /* Optional: Padding around logos */
 }
 
 .clients .client-logo img {
