@@ -1281,7 +1281,8 @@ section,
 
 @media (max-width: 640px) {
   .clients .client-logo img {
-    max-height: 70px; /* Adjust height for smaller screens */
+    max-height: 200px; /* Adjust height for smaller screens */
+    max-width: 200px;
     padding: 20px;
   }
 }
