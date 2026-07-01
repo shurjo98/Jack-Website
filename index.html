@@ -2210,104 +2210,6 @@
       </section>
 
       <!-- ============================================================
-         FAQ
-         ============================================================ -->
-      <section class="apple-faq" id="faq">
-        <div class="container">
-          <div class="section-eyebrow reveal">FAQs</div>
-          <h2 class="section-h2 reveal reveal-delay-1">Common questions.</h2>
-          <p class="section-sub reveal reveal-delay-2">
-            Everything you need to know before choosing FM as your sewing
-            machine partner.
-          </p>
-
-          <div class="faq-list reveal reveal-delay-2">
-            <div class="faq-row open">
-              <button class="faq-trigger">
-                Why should I choose FM as my sewing machine supplier?
-                <span class="faq-plus">+</span>
-              </button>
-              <div class="faq-body">
-                <p>
-                  At FM, we don't just sell sewing machines. We bring over 20
-                  years of experience in the garments industry. As the first
-                  official agent of Jack Sewing Machines in Bangladesh, we
-                  understand the unique demands of the industry and are better
-                  equipped than anyone else to support your production needs.
-                </p>
-              </div>
-            </div>
-
-            <div class="faq-row">
-              <button class="faq-trigger">
-                What makes the A5E-BNX different from other lockstitch machines?
-                <span class="faq-plus">+</span>
-              </button>
-              <div class="faq-body">
-                <p>
-                  The A5E-BNX combines two critical innovations: Anti Bird Nest
-                  technology that eliminates thread tangles at the start of
-                  every seam, and ultra-short thread trimming that cuts tails to
-                  under 3mm. Together these two features remove the two most
-                  common causes of rework and productivity loss on a standard
-                  lockstitch line.
-                </p>
-              </div>
-            </div>
-
-            <div class="faq-row">
-              <button class="faq-trigger">
-                What kind of after-sales support does FM provide?
-                <span class="faq-trigger-text"></span>
-                <span class="faq-plus">+</span>
-              </button>
-              <div class="faq-body">
-                <p>
-                  When you choose FM, you get more than a machine. You get
-                  full-service support from industry experts. Our technical
-                  team, spread across Bangladesh, is always available for
-                  training, troubleshooting, and maintenance. All Jack machines
-                  come with 1-year mechanical and 3-year electronic warranty
-                  coverage.
-                </p>
-              </div>
-            </div>
-
-            <div class="faq-row">
-              <button class="faq-trigger">
-                How fast can machines be delivered after ordering?
-                <span class="faq-plus">+</span>
-              </button>
-              <div class="faq-body">
-                <p>
-                  FM ensures a fast and reliable shipment process. Thanks to our
-                  strong supply chain partnerships, shipments from China to
-                  Bangladesh are streamlined and typically arrive faster than
-                  other brands, ensuring minimal downtime for your operations.
-                </p>
-              </div>
-            </div>
-
-            <div class="faq-row">
-              <button class="faq-trigger">
-                Does FM offer solutions beyond individual machines?
-                <span class="faq-plus">+</span>
-              </button>
-              <div class="faq-body">
-                <p>
-                  Yes. The Jack Total Solution integrates advanced sewing
-                  technologies, automation, and AGV systems to streamline every
-                  aspect of production, from cutting and stitching to real-time
-                  tracking and quality control. FM can scope and implement
-                  complete factory automation projects.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- ============================================================
          CONTACT
          ============================================================ -->
       <section class="apple-contact" id="contact">
@@ -2437,9 +2339,14 @@
           <div>
             <div class="footer-brand">FM Corporation</div>
             <div class="footer-brand-sub">Fast &amp; Modern &middot; Bangladesh</div>
-            <div class="footer-trading-names">
-              Trading as Jack Machinery Import &amp; Export and Impressive
-              Technology &amp; Service
+            <div class="footer-trading-label">Also trading as</div>
+            <div class="footer-trading-badges">
+              <span class="footer-trading-badge"
+                >Jack Machinery Import &amp; Export</span
+              >
+              <span class="footer-trading-badge"
+                >Impressive Technology &amp; Service</span
+              >
             </div>
             <div class="footer-social mt-3">
               <a
@@ -2585,22 +2492,6 @@
           { threshold: 0.4 },
         );
         io.observe(diagram);
-      })();
-
-      /* =====================================================
-       5. FAQ accordion
-       ===================================================== */
-      (function () {
-        document.querySelectorAll(".faq-trigger").forEach(function (btn) {
-          btn.addEventListener("click", function () {
-            const row = btn.closest(".faq-row");
-            const isOpen = row.classList.contains("open");
-            document.querySelectorAll(".faq-row.open").forEach(function (r) {
-              r.classList.remove("open");
-            });
-            if (!isOpen) row.classList.add("open");
-          });
-        });
       })();
     </script>
   </body>

@@ -1182,8 +1182,9 @@ h1, h2, h3, h4, h5, h6 {
   position: relative;
   margin-top: 80px;
   overflow: hidden;
-  aspect-ratio: 16 / 9;
-  max-height: 480px;
+  height: 100vh;
+  min-height: 560px;
+  max-height: 900px;
   background: #000;
 }
 
@@ -1978,83 +1979,6 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* =============================================
-   FAQ
-   ============================================= */
-.apple-faq {
-  padding: 100px 0;
-  background: var(--white);
-}
-
-.faq-list {
-  max-width: 760px;
-  margin: 0 auto;
-}
-
-.faq-row {
-  border-bottom: 0.5px solid var(--rule);
-}
-
-.faq-trigger {
-  width: 100%;
-  background: none;
-  border: none;
-  padding: 20px 0;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 24px;
-  cursor: pointer;
-  font-family: inherit;
-  font-size: 16px;
-  font-weight: 500;
-  color: var(--dark);
-  text-align: left;
-  transition: color 0.2s ease;
-}
-
-.faq-trigger:hover { color: var(--blue); }
-
-.faq-plus {
-  width: 24px;
-  height: 24px;
-  border-radius: 50%;
-  border: 1px solid rgba(0,0,0,0.15);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  transition: background 0.2s, border-color 0.2s, transform 0.3s;
-  font-size: 14px;
-  color: var(--mid);
-  font-weight: 300;
-  line-height: 1;
-  user-select: none;
-}
-
-.faq-row.open .faq-plus {
-  background: var(--blue);
-  border-color: var(--blue);
-  color: white;
-  transform: rotate(45deg);
-}
-
-.faq-body {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.45s cubic-bezier(0.4,0,0.2,1);
-}
-
-.faq-row.open .faq-body { max-height: 320px; }
-
-.faq-body p {
-  font-size: 15px;
-  color: var(--gray);
-  line-height: 1.7;
-  padding-bottom: 20px;
-  margin: 0;
-}
-
-/* =============================================
    CONTACT
    ============================================= */
 .apple-contact {
@@ -2162,12 +2086,31 @@ h1, h2, h3, h4, h5, h6 {
   color: rgba(255,255,255,0.35);
 }
 
-.footer-trading-names {
+.footer-trading-label {
   font-size: 11px;
-  color: rgba(255,255,255,0.25);
-  max-width: 280px;
-  line-height: 1.5;
-  margin-top: 8px;
+  font-weight: 700;
+  color: rgba(255,255,255,0.4);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-top: 16px;
+  margin-bottom: 10px;
+}
+
+.footer-trading-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  max-width: 320px;
+}
+
+.footer-trading-badge {
+  font-size: 12px;
+  font-weight: 500;
+  color: rgba(255,255,255,0.8);
+  background: rgba(255,255,255,0.08);
+  border: 0.5px solid rgba(255,255,255,0.18);
+  border-radius: 980px;
+  padding: 6px 14px;
 }
 
 .footer-links-group h5 {
@@ -2266,7 +2209,6 @@ h1, h2, h3, h4, h5, h6 {
   .apple-feature,
   .apple-lineup,
   .apple-warranty,
-  .apple-faq,
   .apple-contact { padding: 80px 0; }
   .feature-h2 { font-size: 36px; }
   .nest-diagram { flex-direction: column; gap: 20px; }
