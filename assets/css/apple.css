@@ -2162,6 +2162,14 @@ h1, h2, h3, h4, h5, h6 {
   color: rgba(255,255,255,0.35);
 }
 
+.footer-trading-names {
+  font-size: 11px;
+  color: rgba(255,255,255,0.25);
+  max-width: 280px;
+  line-height: 1.5;
+  margin-top: 8px;
+}
+
 .footer-links-group h5 {
   font-size: 12px;
   font-weight: 600;
