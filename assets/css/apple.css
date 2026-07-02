@@ -1206,6 +1206,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .beetle-banner-quote {
   max-width: 420px;
+  min-width: 0;
   color: white;
   font-size: clamp(18px, 2.2vw, 26px);
   font-weight: 500;
@@ -1214,6 +1215,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .beetle-banner-dark { margin-top: 24px; }
+
+.beetle-banner-dark img { object-position: center 58%; }
 
 .beetle-banner-dark .beetle-banner-text {
   align-items: flex-end;
@@ -1225,6 +1228,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .beetle-banner-dark .beetle-banner-quote {
   max-width: 640px;
+  width: 100%;
   font-size: clamp(24px, 3.4vw, 38px);
   font-weight: 700;
   letter-spacing: -0.02em;
@@ -1355,6 +1359,7 @@ h1, h2, h3, h4, h5, h6 {
 .apple-feature.bg-white { background: var(--white); }
 .apple-feature.bg-light { background: var(--light); }
 .apple-feature.bg-dark  { background: #000; }
+.apple-feature.bg-warm  { background: linear-gradient(180deg, #fdf8ee 0%, #faf1e0 100%); }
 
 .feature-tag {
   font-size: 11px;
@@ -1752,6 +1757,98 @@ h1, h2, h3, h4, h5, h6 {
   color: var(--gray);
   margin-top: 2px;
 }
+
+/* =============================================
+   LITESPEED NEEDLE
+   ============================================= */
+.litespeed-needle-card {
+  position: relative;
+  background: rgba(255,255,255,0.6);
+  border: 0.5px solid rgba(194,112,58,0.18);
+  border-radius: var(--radius-lg);
+  padding: 56px 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+}
+
+.litespeed-needle-glow {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 30% 40%, rgba(255,140,60,0.22) 0%, transparent 60%),
+              radial-gradient(ellipse at 75% 65%, rgba(255,90,60,0.12) 0%, transparent 55%);
+  pointer-events: none;
+}
+
+.litespeed-needle-img {
+  position: relative;
+  width: 100%;
+  filter: drop-shadow(0 16px 30px rgba(120,60,20,0.18));
+}
+
+.litespeed-needle-label {
+  position: relative;
+  margin-top: 24px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #a35a2a;
+  letter-spacing: 0.04em;
+}
+
+.litespeed-gallery-row { margin-top: 72px; }
+
+.litespeed-gallery-head { text-align: center; margin-bottom: 36px; }
+
+.litespeed-gallery-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--dark);
+  letter-spacing: -0.01em;
+  margin-bottom: 10px;
+}
+
+.litespeed-gallery-sub {
+  font-size: 14px;
+  color: var(--gray);
+  max-width: 480px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+.litespeed-gallery {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 28px;
+  flex-wrap: wrap;
+  padding: 12px 0 24px;
+}
+
+.litespeed-card {
+  width: 160px;
+  background: white;
+  border-radius: 8px;
+  padding: 8px 8px 14px;
+  box-shadow: 0 14px 28px rgba(120,90,50,0.16);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.litespeed-card img {
+  width: 100%;
+  display: block;
+  border-radius: 3px;
+}
+
+.litespeed-card:hover {
+  transform: rotate(0deg) translateY(-6px) !important;
+  box-shadow: 0 20px 36px rgba(120,90,50,0.22);
+}
+
+.litespeed-card-1 { transform: rotate(-4deg); }
+.litespeed-card-2 { transform: rotate(3deg); margin-top: 18px; }
+.litespeed-card-3 { transform: rotate(-2deg); }
+.litespeed-card-4 { transform: rotate(4deg); margin-top: 18px; }
 
 /* =============================================
    PRODUCT LINEUP
@@ -2220,14 +2317,24 @@ h1, h2, h3, h4, h5, h6 {
   .needle-anatomy { grid-template-columns: 1fr; }
   .cloth-points-strip { flex-direction: column; gap: 28px; }
   .cloth-points-lead { flex-basis: auto; }
+  .litespeed-needle-card { padding: 36px 20px; }
+  .litespeed-gallery { gap: 16px; }
+  .litespeed-card { width: 128px; }
+  .litespeed-card-2, .litespeed-card-4 { margin-top: 12px; }
   .beetle-feature { padding-top: 80px; }
-  .beetle-banner { margin-top: 48px; }
+  .beetle-banner {
+    margin-top: 48px;
+    height: 70vh;
+    min-height: 420px;
+    max-height: 640px;
+  }
   .beetle-banner-text {
     padding: 0 24px;
     background: linear-gradient(90deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.3) 100%);
   }
   .beetle-banner-quote { max-width: 100%; }
   .beetle-banner-dark .beetle-banner-text { padding: 0 20px 28px; }
+  .beetle-banner-dark .beetle-banner-quote { font-size: 26px; }
   .portal-feature { padding: 80px 0; }
   .portal-row { margin-bottom: 48px; }
   .footer-top { flex-direction: column; }
