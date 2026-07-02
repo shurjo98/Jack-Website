@@ -1758,6 +1758,27 @@ h1, h2, h3, h4, h5, h6 {
   margin-top: 2px;
 }
 
+.dealer-photo-banner {
+  margin-top: 64px;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+.dealer-photo-banner img {
+  width: 100%;
+  display: block;
+  max-height: 520px;
+  object-fit: cover;
+  object-position: center 30%;
+}
+
+.dealer-photo-caption {
+  text-align: center;
+  font-size: 14px;
+  color: var(--gray);
+  margin: 16px 0 0;
+}
+
 /* =============================================
    LITESPEED NEEDLE
    ============================================= */
@@ -1911,6 +1932,7 @@ h1, h2, h3, h4, h5, h6 {
   align-items: center;
   justify-content: center;
   aspect-ratio: 1 / 1;
+  flex-shrink: 0;
 }
 
 .product-img-wrap img {
