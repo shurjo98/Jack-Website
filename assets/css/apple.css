@@ -102,6 +102,23 @@ h1, h2, h3, h4, h5, h6 {
   padding: 8px 0 !important;
 }
 
+/* Fix: backdrop-filter on .header creates a CSS containing block for
+   position:fixed descendants, which traps the full-screen mobile nav
+   overlay inside the 52px header box instead of the viewport. Drop
+   the filter while the mobile menu is open so it can go fullscreen. */
+body.mobile-nav-active .header {
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+/* Fix: .over-hero forces white link text for the transparent desktop
+   header, but the mobile dropdown panel always has a solid light
+   background — keep its text dark regardless of hero scroll state. */
+body.mobile-nav-active .header .navmenu a,
+body.mobile-nav-active .header .navmenu li a {
+  color: rgba(0,0,0,0.85) !important;
+}
+
 .header .btn-getstarted,
 .header .btn-getstarted:focus {
   font-size: 13px !important;
@@ -2542,6 +2559,99 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* =============================================
+   STORY TIMELINE (About Us)
+   ============================================= */
+.story-timeline {
+  padding: 60px 0 40px;
+  background: var(--white);
+}
+
+.story-item {
+  display: flex;
+  align-items: center;
+  gap: 64px;
+  padding: 64px 0;
+  border-bottom: 0.5px solid var(--rule);
+}
+
+.story-item:last-child { border-bottom: none; }
+
+.story-item.reverse { flex-direction: row-reverse; }
+
+.story-media {
+  flex: 0 0 42%;
+  position: relative;
+}
+
+.story-media img {
+  width: 100%;
+  height: 320px;
+  object-fit: cover;
+  border-radius: var(--radius-lg);
+  display: block;
+  box-shadow: 0 24px 50px rgba(0,0,0,0.12);
+}
+
+.story-icon-badge {
+  position: absolute;
+  top: -18px;
+  left: -18px;
+  width: 60px;
+  height: 60px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 24px rgba(0,0,0,0.18);
+  transform: rotate(-8deg);
+  z-index: 2;
+}
+
+.story-item.reverse .story-icon-badge { left: auto; right: -18px; transform: rotate(8deg); }
+
+.story-icon-badge i { font-size: 24px; color: white; }
+
+.story-icon-badge.blue   { background: var(--blue); }
+.story-icon-badge.amber  { background: #c2703a; }
+.story-icon-badge.green  { background: #0a7a3d; }
+.story-icon-badge.purple { background: #7a4fd6; }
+
+.story-content { flex: 1; min-width: 0; }
+
+.story-year-tag {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #a35a2a;
+  background: rgba(255,150,60,0.12);
+  border: 0.5px solid rgba(255,150,60,0.3);
+  border-radius: 8px;
+  padding: 6px 14px;
+  margin-bottom: 18px;
+  transform: rotate(-1.5deg);
+}
+
+.story-title {
+  font-size: clamp(24px, 3vw, 32px);
+  font-weight: 700;
+  color: var(--dark);
+  letter-spacing: -0.02em;
+  margin-bottom: 16px;
+  line-height: 1.15;
+}
+
+.story-body {
+  font-size: 16px;
+  color: var(--gray);
+  line-height: 1.7;
+  max-width: 480px;
+}
+
+.story-body strong { color: var(--dark); font-weight: 600; }
+
+/* =============================================
    RESPONSIVE
    ============================================= */
 @media (max-width: 1024px) {
@@ -2602,4 +2712,9 @@ h1, h2, h3, h4, h5, h6 {
   .cat-flagship-img { max-width: 300px; }
   .cat-flagship-model-row { flex-direction: column; }
   .cat-group { margin-top: 56px; }
+  .story-item,
+  .story-item.reverse { flex-direction: column; gap: 32px; padding: 44px 0; }
+  .story-media { flex-basis: auto; width: 100%; }
+  .story-media img { height: 240px; }
+  .story-body { max-width: 100%; }
 }
