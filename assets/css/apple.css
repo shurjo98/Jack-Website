@@ -2559,97 +2559,175 @@ body.mobile-nav-active .header .navmenu li a {
 }
 
 /* =============================================
-   STORY TIMELINE (About Us)
+   ORIGIN STORY — scroll-chaptered narrative (About Us)
    ============================================= */
-.story-timeline {
-  padding: 60px 0 40px;
+.story-chapters {
   background: var(--white);
-}
-
-.story-item {
-  display: flex;
-  align-items: center;
-  gap: 64px;
-  padding: 64px 0;
-  border-bottom: 0.5px solid var(--rule);
-}
-
-.story-item:last-child { border-bottom: none; }
-
-.story-item.reverse { flex-direction: row-reverse; }
-
-.story-media {
-  flex: 0 0 42%;
   position: relative;
 }
 
-.story-media img {
-  width: 100%;
-  height: 320px;
-  object-fit: cover;
-  border-radius: var(--radius-lg);
-  display: block;
-  box-shadow: 0 24px 50px rgba(0,0,0,0.12);
+/* A thin connecting "thread" running down the spine of the story */
+.story-chapters::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 1px;
+  background: repeating-linear-gradient(
+    to bottom,
+    var(--rule) 0px, var(--rule) 6px, transparent 6px, transparent 14px
+  );
+  z-index: 0;
 }
 
-.story-icon-badge {
+.chapter {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  gap: 6vw;
+  min-height: 92vh;
+  padding: 72px 0;
+}
+
+.chapter.reverse { flex-direction: row-reverse; }
+
+.chapter-media {
+  flex: 0 0 54%;
+  position: relative;
+}
+
+.chapter-media img {
+  width: 100%;
+  display: block;
+  border-radius: var(--radius-lg);
+  box-shadow: 0 30px 70px rgba(0,0,0,0.16);
+}
+
+.chapter-num {
   position: absolute;
-  top: -18px;
-  left: -18px;
-  width: 60px;
-  height: 60px;
-  border-radius: 16px;
+  top: -20px;
+  left: -20px;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: var(--dark);
+  color: white;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 10px 24px rgba(0,0,0,0.18);
-  transform: rotate(-8deg);
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  box-shadow: 0 12px 26px rgba(0,0,0,0.28);
   z-index: 2;
 }
 
-.story-item.reverse .story-icon-badge { left: auto; right: -18px; transform: rotate(8deg); }
+.chapter.reverse .chapter-num { left: auto; right: -20px; }
 
-.story-icon-badge i { font-size: 24px; color: white; }
+.chapter-content {
+  flex: 1;
+  min-width: 0;
+  max-width: 440px;
+}
 
-.story-icon-badge.blue   { background: var(--blue); }
-.story-icon-badge.amber  { background: #c2703a; }
-.story-icon-badge.green  { background: #0a7a3d; }
-.story-icon-badge.purple { background: #7a4fd6; }
-
-.story-content { flex: 1; min-width: 0; }
-
-.story-year-tag {
-  display: inline-block;
+.chapter-eyebrow {
   font-size: 12px;
   font-weight: 700;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: #a35a2a;
-  background: rgba(255,150,60,0.12);
-  border: 0.5px solid rgba(255,150,60,0.3);
-  border-radius: 8px;
-  padding: 6px 14px;
-  margin-bottom: 18px;
-  transform: rotate(-1.5deg);
-}
-
-.story-title {
-  font-size: clamp(24px, 3vw, 32px);
-  font-weight: 700;
-  color: var(--dark);
-  letter-spacing: -0.02em;
+  color: var(--blue);
   margin-bottom: 16px;
-  line-height: 1.15;
 }
 
-.story-body {
-  font-size: 16px;
-  color: var(--gray);
+.chapter-title {
+  font-size: clamp(28px, 3.4vw, 40px);
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  line-height: 1.12;
+  color: var(--dark);
+  margin-bottom: 20px;
+  text-wrap: balance;
+}
+
+.chapter-body {
+  font-size: 17px;
   line-height: 1.7;
-  max-width: 480px;
+  color: var(--gray);
 }
 
-.story-body strong { color: var(--dark); font-weight: 600; }
+.chapter-body strong { color: var(--dark); font-weight: 600; }
+
+/* Scroll reveal: image and text move in on slightly different beats */
+.chapter-media.reveal { transform: translateY(44px) scale(0.97); }
+.chapter-content.reveal { transform: translateY(26px); }
+
+/* Higher-specificity override so the resting position always wins once
+   revealed, regardless of the plain .reveal.in-view rule's source order. */
+.chapter-media.reveal.in-view { transform: translateY(0) scale(1); }
+.chapter-content.reveal.in-view { transform: translateY(0); }
+
+/* Fixed chapter rail — desktop only */
+.chapter-rail {
+  position: fixed;
+  right: 28px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 13px;
+  z-index: 40;
+}
+
+.chapter-rail-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(0,0,0,0.16);
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.chapter-rail-dot:hover { background: rgba(0,0,0,0.32); }
+.chapter-rail-dot.active { background: var(--blue); transform: scale(1.5); }
+
+/* Closing / today section */
+.story-close {
+  padding: 100px 0 120px;
+  text-align: center;
+  background: var(--light);
+}
+
+.story-close-eyebrow {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--blue);
+  margin-bottom: 18px;
+}
+
+.story-close-title {
+  font-size: clamp(26px, 3.4vw, 38px);
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  color: var(--dark);
+  max-width: 640px;
+  margin: 0 auto 36px;
+  line-height: 1.25;
+  text-wrap: balance;
+}
+
+.story-close-actions {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
 
 /* =============================================
    RESPONSIVE
@@ -2712,9 +2790,22 @@ body.mobile-nav-active .header .navmenu li a {
   .cat-flagship-img { max-width: 300px; }
   .cat-flagship-model-row { flex-direction: column; }
   .cat-group { margin-top: 56px; }
-  .story-item,
-  .story-item.reverse { flex-direction: column; gap: 32px; padding: 44px 0; }
-  .story-media { flex-basis: auto; width: 100%; }
-  .story-media img { height: 240px; }
-  .story-body { max-width: 100%; }
+  .chapter-rail { display: none; }
+}
+
+@media (max-width: 900px) {
+  .chapter,
+  .chapter.reverse {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 28px;
+    min-height: 0;
+    padding: 48px 0;
+  }
+  .chapter-media { flex-basis: auto; width: 100%; }
+  .chapter-num { width: 42px; height: 42px; font-size: 12px; top: -14px; left: -14px; }
+  .chapter.reverse .chapter-num { right: -14px; }
+  .chapter-content { max-width: 100%; }
+  .story-chapters::before { left: 22px; }
+  .story-close { padding: 72px 0 88px; }
 }
