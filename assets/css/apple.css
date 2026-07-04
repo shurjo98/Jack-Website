@@ -2563,13 +2563,26 @@ body.mobile-nav-active .header .navmenu li a {
    ============================================= */
 
 /* Hero with a photographic background instead of the gradient-only cat-hero */
-.cat-hero.photo-hero {
-  background-size: cover;
-  background-position: center 25%;
+.cat-hero.photo-hero { min-height: 72vh; }
+
+.cat-hero-photo {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 60% 35%;
 }
 
 .cat-hero.photo-hero .cat-hero-backdrop {
-  background: linear-gradient(180deg, rgba(0,0,0,0.35) 0%, rgba(0,0,0,0.55) 55%, rgba(0,0,0,0.9) 100%);
+  background: linear-gradient(
+    100deg,
+    rgba(0,0,0,0.8) 0%,
+    rgba(0,0,0,0.5) 32%,
+    rgba(0,0,0,0.12) 58%,
+    rgba(0,0,0,0.3) 100%
+  );
 }
 
 /* "Real support, real hours" feature row */
@@ -2625,13 +2638,31 @@ body.mobile-nav-active .header .navmenu li a {
   padding: 40px 40px 32px;
 }
 
+.coverage-row {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-bottom: 14px;
+}
+
+.coverage-row-label {
+  flex: 0 0 150px;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--dark);
+}
+
+.coverage-row .coverage-track { flex: 1; margin-bottom: 0; }
+
 .coverage-track {
   display: flex;
   width: 100%;
   height: 14px;
   border-radius: 7px;
   overflow: hidden;
-  margin-bottom: 14px;
 }
 
 .coverage-seg {
@@ -2641,32 +2672,26 @@ body.mobile-nav-active .header .navmenu li a {
 
 .coverage-seg.human { background: var(--blue); }
 .coverage-seg.ai { background: #c2703a; }
+.coverage-seg.empty { background: rgba(0,0,0,0.07); }
 
 .coverage-ticks {
-  display: flex;
-  width: 100%;
-  margin-bottom: 28px;
+  position: relative;
+  height: 16px;
+  margin: 8px 0 20px 168px;
 }
 
 .coverage-tick {
+  position: absolute;
+  top: 0;
+  white-space: nowrap;
   font-size: 11px;
   color: var(--gray);
   font-weight: 500;
+  transform: translateX(-50%);
 }
 
-.coverage-legend {
-  display: flex;
-  gap: 28px;
-  flex-wrap: wrap;
-}
-
-.coverage-legend-item {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-size: 14px;
-  color: var(--mid);
-}
+.coverage-tick:first-child { transform: translateX(0); }
+.coverage-tick:last-child { transform: translateX(-100%); }
 
 .coverage-legend-dot {
   width: 11px;
@@ -2678,7 +2703,11 @@ body.mobile-nav-active .header .navmenu li a {
 .coverage-legend-dot.human { background: var(--blue); }
 .coverage-legend-dot.ai { background: #c2703a; }
 
-.coverage-legend-item strong { color: var(--dark); font-weight: 600; }
+.coverage-note {
+  font-size: 13.5px;
+  color: var(--gray);
+  margin: 0;
+}
 
 /* Subtle eligibility note under the AI support CTA */
 .ai-note {
@@ -3064,6 +3093,8 @@ body.mobile-nav-active .header .navmenu li a {
   .footer-top { flex-direction: column; }
   .stat-cell { min-width: 100%; }
   .cat-hero { min-height: auto; padding: 100px 0 0; }
+  .cat-hero.photo-hero { min-height: 64vh; }
+  .cat-hero-photo { object-position: 55% 30%; }
   .cat-hero-h1 { font-size: 34px; }
   .cat-flagship { padding: 80px 0 40px; }
   .cat-flagship-img { max-width: 300px; }
@@ -3088,7 +3119,11 @@ body.mobile-nav-active .header .navmenu li a {
   .story-chapters::before { left: 22px; }
   .story-close { padding: 72px 0 88px; }
   .coverage-card { padding: 28px 20px 24px; }
-  .coverage-legend { gap: 18px; }
+  .coverage-row { flex-direction: column; align-items: flex-start; gap: 8px; }
+  .coverage-row-label { flex-basis: auto; }
+  .coverage-row .coverage-track { flex: none; width: 100%; height: 14px; }
+  .coverage-ticks { margin-left: 0; }
+  .coverage-tick { font-size: 9.5px; }
   .ai-demo { padding: 18px 18px 20px; }
   .ai-demo-body { min-height: 0; }
 }

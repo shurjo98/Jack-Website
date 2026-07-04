@@ -69,7 +69,12 @@
 
     <main>
       <!-- HERO -->
-      <section id="hero" class="cat-hero photo-hero" style="background-image:url('assets/img/support_pic_3.png');">
+      <section id="hero" class="cat-hero photo-hero">
+        <img
+          src="assets/img/support_pic_3_hero.jpg"
+          alt="A woman answers a factory-floor telephone"
+          class="cat-hero-photo"
+        />
         <div class="cat-hero-backdrop"></div>
         <div class="container">
           <div class="cat-hero-eyebrow reveal">Support &amp; Services</div>
@@ -131,39 +136,46 @@
       <section class="apple-lineup" style="padding: 100px 0;">
         <div class="container">
           <div class="section-eyebrow reveal">Covered Around The Clock</div>
-          <h2 class="section-h2 reveal reveal-delay-1">Someone's on it, any hour.</h2>
+          <h2 class="section-h2 reveal reveal-delay-1">AI, all day. A person too, twice a day.</h2>
           <p class="section-sub reveal reveal-delay-2">
-            When the support line is open, you get a person. The rest of
-            the day and night, FM Support AI picks up instead.
+            FM Support AI is on call every hour of every day. During working
+            hours, a person is also on the line for anything that needs a
+            human touch.
           </p>
 
           <div class="coverage-card reveal reveal-delay-3">
-            <div class="coverage-track">
-              <div class="coverage-seg ai" style="flex:0 0 37.5%"></div>
-              <div class="coverage-seg human" style="flex:0 0 12.5%"></div>
-              <div class="coverage-seg ai" style="flex:0 0 8.33%"></div>
-              <div class="coverage-seg human" style="flex:0 0 12.5%"></div>
-              <div class="coverage-seg ai" style="flex:0 0 29.17%"></div>
+            <div class="coverage-row">
+              <div class="coverage-row-label">
+                <span class="coverage-legend-dot ai"></span> FM Support AI
+              </div>
+              <div class="coverage-track">
+                <div class="coverage-seg ai" style="flex:0 0 100%"></div>
+              </div>
+            </div>
+            <div class="coverage-row">
+              <div class="coverage-row-label">
+                <span class="coverage-legend-dot human"></span> A person, too
+              </div>
+              <div class="coverage-track">
+                <div class="coverage-seg empty" style="flex:0 0 37.5%"></div>
+                <div class="coverage-seg human" style="flex:0 0 12.5%"></div>
+                <div class="coverage-seg empty" style="flex:0 0 8.33%"></div>
+                <div class="coverage-seg human" style="flex:0 0 12.5%"></div>
+                <div class="coverage-seg empty" style="flex:0 0 29.17%"></div>
+              </div>
             </div>
             <div class="coverage-ticks">
-              <div class="coverage-tick" style="flex:0 0 37.5%">12 AM</div>
-              <div class="coverage-tick" style="flex:0 0 12.5%">9 AM</div>
-              <div class="coverage-tick" style="flex:0 0 8.33%">12 PM</div>
-              <div class="coverage-tick" style="flex:0 0 12.5%">2 PM</div>
-              <div class="coverage-tick" style="flex:0 0 29.17%; position:relative;">
-                <span style="position:absolute; right:0;">12 AM</span>
-              </div>
+              <span class="coverage-tick" style="left:0%">12 AM</span>
+              <span class="coverage-tick" style="left:37.5%">9 AM</span>
+              <span class="coverage-tick" style="left:50%">12 PM</span>
+              <span class="coverage-tick" style="left:58.33%">2 PM</span>
+              <span class="coverage-tick" style="left:70.83%">5 PM</span>
+              <span class="coverage-tick" style="left:100%">12 AM</span>
             </div>
-            <div class="coverage-legend">
-              <div class="coverage-legend-item">
-                <span class="coverage-legend-dot human"></span>
-                <span><strong>9&ndash;12 &amp; 2&ndash;5</strong> &mdash; a person on the support line</span>
-              </div>
-              <div class="coverage-legend-item">
-                <span class="coverage-legend-dot ai"></span>
-                <span><strong>All other hours</strong> &mdash; FM Support AI</span>
-              </div>
-            </div>
+            <p class="coverage-note">
+              FM Support AI answers around the clock, every day. A person is
+              also on the support line 9&ndash;12 and 2&ndash;5.
+            </p>
           </div>
         </div>
       </section>
@@ -173,17 +185,18 @@
         <div class="container">
           <div class="row align-items-center gy-5">
             <div class="col-lg-5 reveal">
-              <div class="feature-tag">Outside Office Hours</div>
+              <div class="feature-tag">Available Every Hour</div>
               <h2 class="feature-h2">FM Support AI.<br />Never off the clock.</h2>
               <p class="feature-body">
-                Before 9, after 5, over lunch, or in the middle of the
-                night &mdash; pick the machine problem, add the error code,
-                and FM Support AI answers straight away.
+                Day or night, weekday or holiday &mdash; pick the machine
+                problem, add the error code, and FM Support AI answers
+                straight away. It's on call even while the support line is
+                open too.
               </p>
               <ul class="feature-checklist">
                 <li>
                   <span class="check-icon" style="background:#c2703a;"><i class="bi bi-check-lg"></i></span>
-                  Answers in seconds, any time of day
+                  Answers in seconds, 24 hours a day
                 </li>
                 <li>
                   <span class="check-icon" style="background:#c2703a;"><i class="bi bi-check-lg"></i></span>
