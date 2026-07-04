@@ -2582,6 +2582,8 @@ body.mobile-nav-active .header .navmenu li a {
 .support-portrait {
   width: 100%;
   max-width: 380px;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
   border-radius: var(--radius-lg);
   display: block;
   box-shadow: 0 30px 60px rgba(0,0,0,0.18);
@@ -2678,42 +2680,161 @@ body.mobile-nav-active .header .navmenu li a {
 
 .coverage-legend-item strong { color: var(--dark); font-weight: 600; }
 
-/* AI support callout cards (reuses warranty-card visual language) */
-.ai-support-grid { display: flex; gap: 24px; flex-wrap: wrap; }
-
-.ai-support-card {
-  flex: 1;
-  min-width: 220px;
-  background: rgba(255,255,255,0.05);
-  border: 0.5px solid rgba(255,255,255,0.09);
-  border-radius: var(--radius-md);
-  padding: 32px;
+/* Subtle eligibility note under the AI support CTA */
+.ai-note {
+  font-size: 12.5px;
+  color: rgba(255,255,255,0.4);
+  margin-top: 16px;
 }
 
-.ai-support-icon {
-  width: 48px;
-  height: 48px;
-  border-radius: 14px;
-  background: rgba(194,112,58,0.18);
+/* Animated "how it works" chat demo */
+.ai-demo {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  padding: 22px 22px 24px;
+  max-width: 400px;
+  margin: 0 auto;
+  box-shadow: 0 30px 70px rgba(0,0,0,0.4);
+}
+
+.ai-demo-head {
   display: flex;
   align-items: center;
-  justify-content: center;
-  margin-bottom: 22px;
+  gap: 9px;
+  padding-bottom: 14px;
+  margin-bottom: 16px;
+  border-bottom: 0.5px solid var(--rule);
 }
 
-.ai-support-icon i { font-size: 20px; color: #e08a4f; }
-
-.ai-support-title {
-  font-size: 17px;
-  font-weight: 600;
-  color: rgba(255,255,255,0.9);
-  margin-bottom: 10px;
+.ai-demo-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #2ecc71;
+  flex-shrink: 0;
 }
 
-.ai-support-desc {
-  font-size: 14px;
-  color: rgba(255,255,255,0.5);
-  line-height: 1.65;
+.ai-demo-title { font-size: 14px; font-weight: 600; color: var(--dark); }
+
+.ai-demo-status {
+  margin-left: auto;
+  font-size: 11px;
+  color: var(--gray);
+}
+
+.ai-demo-body {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  min-height: 250px;
+}
+
+.ai-demo-bubble {
+  max-width: 82%;
+  padding: 10px 14px;
+  border-radius: 14px;
+  font-size: 13.5px;
+  line-height: 1.55;
+}
+
+.ai-demo-bubble-bot {
+  background: var(--light);
+  color: var(--dark);
+  border-bottom-left-radius: 4px;
+}
+
+.ai-demo-bubble-user {
+  align-self: flex-end;
+  background: var(--blue);
+  color: white;
+  border-bottom-right-radius: 4px;
+}
+
+.ai-demo-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.ai-demo-pill {
+  font-size: 12px;
+  font-weight: 500;
+  padding: 6px 13px;
+  border-radius: 980px;
+  border: 1px solid var(--rule);
+  color: var(--gray);
+}
+
+.ai-demo-typing {
+  background: var(--light);
+  padding: 12px 14px;
+  border-radius: 14px;
+  border-bottom-left-radius: 4px;
+}
+
+.ai-demo-typing span {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--gray);
+  margin-right: 4px;
+  animation: aiDotBounce 1s ease-in-out infinite;
+}
+
+.ai-demo-typing span:nth-child(2) { animation-delay: 0.15s; }
+.ai-demo-typing span:nth-child(3) { animation-delay: 0.3s; margin-right: 0; }
+
+@keyframes aiDotBounce {
+  0%, 60%, 100% { transform: translateY(0); opacity: 0.4; }
+  30%            { transform: translateY(-4px); opacity: 1; }
+}
+
+/* Looping conversation timeline — one 9s cycle, elements stay visible
+   once they've appeared, then the whole thing fades for the next loop */
+.ai-demo-step-1 { opacity: 0; animation: aiStep1 9s ease infinite; }
+.ai-demo-step-2 { opacity: 0; animation: aiStep2 9s ease infinite; }
+.ai-demo-step-3 { opacity: 0; animation: aiStep3 9s ease infinite; }
+.ai-demo-step-4 { opacity: 0; animation: aiStep4 9s ease infinite; }
+.ai-demo-step-5 { opacity: 0; animation: aiStep5 9s ease infinite; }
+
+@keyframes aiStep1 {
+  0%, 3%   { opacity: 0; transform: translateY(6px); }
+  8%, 90%  { opacity: 1; transform: translateY(0); }
+  97%, 100% { opacity: 0; }
+}
+
+@keyframes aiStep2 {
+  0%, 15%  { opacity: 0; transform: translateY(6px); }
+  20%, 90% { opacity: 1; transform: translateY(0); }
+  97%, 100% { opacity: 0; }
+}
+
+.ai-demo-pill-active { animation: aiPillTap 9s ease infinite; }
+
+@keyframes aiPillTap {
+  0%, 23%   { background: transparent; color: var(--gray); border-color: var(--rule); }
+  27%, 90%  { background: var(--blue); color: white; border-color: var(--blue); }
+  97%, 100% { background: transparent; color: var(--gray); border-color: var(--rule); }
+}
+
+@keyframes aiStep3 {
+  0%, 27%  { opacity: 0; transform: translateY(6px); }
+  32%, 90% { opacity: 1; transform: translateY(0); }
+  97%, 100% { opacity: 0; }
+}
+
+@keyframes aiStep4 {
+  0%, 34%  { opacity: 0; }
+  38%, 49% { opacity: 1; }
+  53%, 100% { opacity: 0; }
+}
+
+@keyframes aiStep5 {
+  0%, 50%  { opacity: 0; transform: translateY(6px); }
+  56%, 90% { opacity: 1; transform: translateY(0); }
+  97%, 100% { opacity: 0; }
 }
 
 /* =============================================
@@ -2968,5 +3089,25 @@ body.mobile-nav-active .header .navmenu li a {
   .story-close { padding: 72px 0 88px; }
   .coverage-card { padding: 28px 20px 24px; }
   .coverage-legend { gap: 18px; }
-  .ai-support-grid { flex-direction: column; }
+  .ai-demo { padding: 18px 18px 20px; }
+  .ai-demo-body { min-height: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ai-demo-step-1,
+  .ai-demo-step-2,
+  .ai-demo-step-3,
+  .ai-demo-step-5 {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+  .ai-demo-step-4 { animation: none; opacity: 0; }
+  .ai-demo-pill-active {
+    animation: none;
+    background: var(--blue);
+    color: white;
+    border-color: var(--blue);
+  }
+  .ai-demo-typing span { animation: none; opacity: 1; }
 }
