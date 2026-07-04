@@ -2559,6 +2559,164 @@ body.mobile-nav-active .header .navmenu li a {
 }
 
 /* =============================================
+   SERVICES / SUPPORT PAGE
+   ============================================= */
+
+/* Hero with a photographic background instead of the gradient-only cat-hero */
+.cat-hero.photo-hero {
+  background-size: cover;
+  background-position: center 25%;
+}
+
+.cat-hero.photo-hero .cat-hero-backdrop {
+  background: linear-gradient(180deg, rgba(0,0,0,0.35) 0%, rgba(0,0,0,0.55) 55%, rgba(0,0,0,0.9) 100%);
+}
+
+/* "Real support, real hours" feature row */
+.support-portrait-wrap {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.support-portrait {
+  width: 100%;
+  max-width: 380px;
+  border-radius: var(--radius-lg);
+  display: block;
+  box-shadow: 0 30px 60px rgba(0,0,0,0.18);
+}
+
+.support-hours-pill {
+  position: absolute;
+  bottom: -18px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: white;
+  border-radius: 980px;
+  padding: 12px 22px;
+  box-shadow: 0 16px 32px rgba(0,0,0,0.16);
+  white-space: nowrap;
+}
+
+.support-hours-pill .dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #2ecc71;
+  flex-shrink: 0;
+}
+
+.support-hours-pill span {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--dark);
+}
+
+/* Coverage timeline — the "always on" 24-hour bar */
+.coverage-card {
+  background: var(--light);
+  border-radius: var(--radius-lg);
+  padding: 40px 40px 32px;
+}
+
+.coverage-track {
+  display: flex;
+  width: 100%;
+  height: 14px;
+  border-radius: 7px;
+  overflow: hidden;
+  margin-bottom: 14px;
+}
+
+.coverage-seg {
+  height: 100%;
+  position: relative;
+}
+
+.coverage-seg.human { background: var(--blue); }
+.coverage-seg.ai { background: #c2703a; }
+
+.coverage-ticks {
+  display: flex;
+  width: 100%;
+  margin-bottom: 28px;
+}
+
+.coverage-tick {
+  font-size: 11px;
+  color: var(--gray);
+  font-weight: 500;
+}
+
+.coverage-legend {
+  display: flex;
+  gap: 28px;
+  flex-wrap: wrap;
+}
+
+.coverage-legend-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  color: var(--mid);
+}
+
+.coverage-legend-dot {
+  width: 11px;
+  height: 11px;
+  border-radius: 3px;
+  flex-shrink: 0;
+}
+
+.coverage-legend-dot.human { background: var(--blue); }
+.coverage-legend-dot.ai { background: #c2703a; }
+
+.coverage-legend-item strong { color: var(--dark); font-weight: 600; }
+
+/* AI support callout cards (reuses warranty-card visual language) */
+.ai-support-grid { display: flex; gap: 24px; flex-wrap: wrap; }
+
+.ai-support-card {
+  flex: 1;
+  min-width: 220px;
+  background: rgba(255,255,255,0.05);
+  border: 0.5px solid rgba(255,255,255,0.09);
+  border-radius: var(--radius-md);
+  padding: 32px;
+}
+
+.ai-support-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  background: rgba(194,112,58,0.18);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 22px;
+}
+
+.ai-support-icon i { font-size: 20px; color: #e08a4f; }
+
+.ai-support-title {
+  font-size: 17px;
+  font-weight: 600;
+  color: rgba(255,255,255,0.9);
+  margin-bottom: 10px;
+}
+
+.ai-support-desc {
+  font-size: 14px;
+  color: rgba(255,255,255,0.5);
+  line-height: 1.65;
+}
+
+/* =============================================
    ORIGIN STORY — scroll-chaptered narrative (About Us)
    ============================================= */
 .story-chapters {
@@ -2808,4 +2966,7 @@ body.mobile-nav-active .header .navmenu li a {
   .chapter-content { max-width: 100%; }
   .story-chapters::before { left: 22px; }
   .story-close { padding: 72px 0 88px; }
+  .coverage-card { padding: 28px 20px 24px; }
+  .coverage-legend { gap: 18px; }
+  .ai-support-grid { flex-direction: column; }
 }
