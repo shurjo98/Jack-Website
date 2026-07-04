@@ -111,12 +111,77 @@ body.mobile-nav-active .header {
   -webkit-backdrop-filter: none !important;
 }
 
-/* Fix: .over-hero forces white link text for the transparent desktop
-   header, but the mobile dropdown panel always has a solid light
-   background — keep its text dark regardless of hero scroll state. */
-body.mobile-nav-active .header .navmenu a,
-body.mobile-nav-active .header .navmenu li a {
-  color: rgba(0,0,0,0.85) !important;
+/* =============================================
+   MOBILE NAV — full-screen dark panel
+   (replaces the template's floating white card, which left a large
+   empty gap below a handful of links and opened with no transition)
+   ============================================= */
+@media (max-width: 1199px) {
+  .navmenu ul {
+    background: rgba(15,15,20,0.98) !important;
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    inset: 0 !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    padding: 32px !important;
+  }
+
+  /* Layout only takes effect once the menu is actually open — leaving
+     the closed (display:none) state from main.css untouched avoids
+     permanently forcing the panel to render. */
+  .mobile-nav-active .navmenu > ul {
+    display: flex !important;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .header .navmenu a,
+  .header .navmenu a:focus {
+    color: rgba(255,255,255,0.92) !important;
+    font-size: 22px !important;
+    font-weight: 600 !important;
+    padding: 16px 4px !important;
+    letter-spacing: -0.01em !important;
+  }
+
+  .navmenu > ul > li {
+    border-bottom: 0.5px solid rgba(255,255,255,0.1);
+  }
+
+  .navmenu > ul > li:last-child { border-bottom: none; }
+
+  .navmenu a i,
+  .navmenu a:focus i {
+    background-color: rgba(255,255,255,0.1) !important;
+  }
+
+  .navmenu .active i,
+  .navmenu .active:focus i {
+    background-color: var(--blue) !important;
+  }
+
+  .header .navmenu .dropdown ul {
+    background: rgba(255,255,255,0.06) !important;
+    border: 0.5px solid rgba(255,255,255,0.12) !important;
+    box-shadow: none !important;
+  }
+
+  .header .navmenu .dropdown ul a,
+  .header .navmenu .dropdown ul a:focus {
+    color: rgba(255,255,255,0.75) !important;
+    font-size: 17px !important;
+    font-weight: 500 !important;
+  }
+
+  @keyframes mobileMenuIn {
+    from { opacity: 0; transform: translateY(14px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .mobile-nav-active .navmenu > ul {
+    animation: mobileMenuIn 0.4s cubic-bezier(0.4,0,0.2,1) forwards;
+  }
 }
 
 .header .btn-getstarted,
@@ -330,6 +395,17 @@ body.mobile-nav-active .header .navmenu li a {
 }
 
 .hero-pill i { font-size: 11px; color: var(--blue); }
+
+.hero-pill {
+  text-decoration: none;
+  transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+.hero-pill:hover {
+  background: rgba(255,255,255,0.14);
+  border-color: rgba(255,255,255,0.4);
+  color: white;
+}
 
 .hero-actions {
   display: flex;
