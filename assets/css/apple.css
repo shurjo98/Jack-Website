@@ -102,6 +102,17 @@ h1, h2, h3, h4, h5, h6 {
   padding: 8px 0 !important;
 }
 
+/* Fix: .over-hero forces white nav text for the transparent desktop
+   header, but this dropdown panel always has a solid white background —
+   keep its links dark regardless of hero scroll state, or they render
+   invisible (white on white). */
+.header .navmenu .dropdown ul a,
+.header .navmenu .dropdown ul a:focus,
+.header.over-hero .navmenu .dropdown ul a,
+.header.over-hero .navmenu .dropdown ul a:focus {
+  color: rgba(0,0,0,0.85) !important;
+}
+
 /* Fix: backdrop-filter on .header creates a CSS containing block for
    position:fixed descendants, which traps the full-screen mobile nav
    overlay inside the 52px header box instead of the viewport. Drop
