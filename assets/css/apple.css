@@ -3125,6 +3125,81 @@ body.mobile-nav-active .header {
 }
 
 /* =============================================
+   GROZ-BECKERT NEEDLE CARDS
+   ============================================= */
+.gb-needle-pack {
+  position: relative;
+  max-width: 200px;
+  margin: 0 auto;
+}
+
+.gb-needle-pack img {
+  width: 100%;
+  display: block;
+  border-radius: var(--radius-sm);
+  box-shadow: 0 16px 32px rgba(0,0,0,0.12);
+}
+
+.gb-needle-pack-label {
+  position: absolute;
+  top: 47%;
+  left: 8%;
+  right: 8%;
+  text-align: center;
+}
+
+.gb-needle-pack-code {
+  font-size: clamp(17px, 2.6vw, 22px);
+  font-weight: 800;
+  color: var(--dark);
+  letter-spacing: -0.02em;
+  line-height: 1;
+}
+
+.gb-finish-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 4px;
+}
+
+.gb-finish-pill {
+  font-size: 10.5px;
+  font-weight: 600;
+  color: #a35a2a;
+  background: rgba(255,150,60,0.12);
+  border: 0.5px solid rgba(255,150,60,0.25);
+  border-radius: 6px;
+  padding: 3px 8px;
+}
+
+/* Point-type reference strip */
+.gb-point-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 20px;
+}
+
+.gb-point-card {
+  background: var(--light);
+  border-radius: var(--radius-sm);
+  padding: 20px;
+}
+
+.gb-point-code {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--blue);
+  margin-bottom: 6px;
+}
+
+.gb-point-desc {
+  font-size: 13px;
+  color: var(--gray);
+  line-height: 1.55;
+}
+
+/* =============================================
    RESPONSIVE
    ============================================= */
 @media (max-width: 1024px) {
