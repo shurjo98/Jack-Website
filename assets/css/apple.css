@@ -2545,7 +2545,12 @@ body.mobile-nav-active .header {
 }
 
 @media (max-width: 991px) {
-  .cat-hero.artwork-hero { min-height: auto; padding-bottom: 0; }
+  .cat-hero.artwork-hero {
+    min-height: auto;
+    padding-bottom: 0;
+    flex-direction: column;
+    align-items: stretch;
+  }
   .cat-hero-art-bleed {
     position: static;
     transform: none;
@@ -2553,13 +2558,13 @@ body.mobile-nav-active .header {
     max-height: none;
     width: 100%;
     text-align: center;
-    margin-top: 8px;
+    margin-top: 28px;
     padding-bottom: 48px;
   }
   .cat-hero-art-bleed img {
     height: auto;
     width: 100%;
-    max-width: 380px;
+    max-width: 340px;
     margin: 0 auto;
   }
 }
