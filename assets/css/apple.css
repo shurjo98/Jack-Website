@@ -2494,6 +2494,66 @@ body.mobile-nav-active .header {
   color: white;
 }
 
+/* Artwork-led hero (needles.html) — cream variant, art bleeds to the viewport edge instead of sitting in a boxed card */
+.cat-hero.artwork-hero {
+  min-height: 68vh;
+  background: #f6f1eb;
+}
+
+.cat-hero.artwork-hero .cat-hero-backdrop { display: none; }
+
+.cat-hero.artwork-hero .cat-hero-eyebrow { color: var(--blue); }
+.cat-hero.artwork-hero .cat-hero-h1 { color: var(--dark); max-width: 540px; }
+.cat-hero.artwork-hero .cat-hero-sub { color: rgba(0,0,0,0.55); max-width: 460px; }
+
+.cat-hero.artwork-hero .cat-jump-nav a {
+  color: rgba(0,0,0,0.65);
+  background: rgba(0,0,0,0.04);
+  border-color: rgba(0,0,0,0.12);
+}
+.cat-hero.artwork-hero .cat-jump-nav a:hover {
+  background: var(--blue);
+  border-color: var(--blue);
+  color: #fff;
+}
+
+.cat-hero-art-bleed {
+  position: absolute;
+  right: -10px;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 76%;
+  max-height: 520px;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.cat-hero-art-bleed img {
+  height: 100%;
+  width: auto;
+  display: block;
+}
+
+@media (max-width: 991px) {
+  .cat-hero.artwork-hero { min-height: auto; padding-bottom: 0; }
+  .cat-hero-art-bleed {
+    position: static;
+    transform: none;
+    height: auto;
+    max-height: none;
+    width: 100%;
+    text-align: center;
+    margin-top: 8px;
+    padding-bottom: 48px;
+  }
+  .cat-hero-art-bleed img {
+    height: auto;
+    width: 100%;
+    max-width: 380px;
+    margin: 0 auto;
+  }
+}
+
 /* Flagship spotlight — dark stage for the featured machine on each page */
 .cat-flagship {
   padding: 110px 0 60px;
