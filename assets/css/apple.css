@@ -2534,6 +2534,16 @@ body.mobile-nav-active .header {
   display: block;
 }
 
+/* .reveal.in-view resets transform on scroll-in, which fights the centering
+   translateY(-50%) above (its 2-class specificity wins over the 1-class rule
+   here). Re-assert the centering transform once revealed, desktop only. */
+@media (min-width: 992px) {
+  .cat-hero-art-bleed.reveal,
+  .cat-hero-art-bleed.reveal.in-view {
+    transform: translateY(-50%);
+  }
+}
+
 @media (max-width: 991px) {
   .cat-hero.artwork-hero { min-height: auto; padding-bottom: 0; }
   .cat-hero-art-bleed {
