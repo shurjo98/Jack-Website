@@ -164,7 +164,7 @@ body.mobile-nav-active .header {
 
   .navmenu a i,
   .navmenu a:focus i {
-    background-color: rgba(255,255,255,0.1) !important;
+    background-color: rgba(255,255,255,0.16) !important;
   }
 
   .navmenu .active i,
@@ -173,14 +173,19 @@ body.mobile-nav-active .header {
   }
 
   .header .navmenu .dropdown ul {
-    background: rgba(255,255,255,0.06) !important;
-    border: 0.5px solid rgba(255,255,255,0.12) !important;
+    background: rgba(255,255,255,0.1) !important;
+    border: 0.5px solid rgba(255,255,255,0.18) !important;
     box-shadow: none !important;
   }
 
-  .header .navmenu .dropdown ul a,
-  .header .navmenu .dropdown ul a:focus {
-    color: rgba(255,255,255,0.75) !important;
+  /* Specificity fix: the global (desktop) dropdown-link color rule
+     above uses the same selector + !important, and was winning this
+     tie by cascade order, rendering near-black text on this dark
+     mobile panel — nearly invisible. Scoping to .mobile-nav-active
+     raises specificity so this always wins while the panel is open. */
+  .mobile-nav-active .header .navmenu .dropdown ul a,
+  .mobile-nav-active .header .navmenu .dropdown ul a:focus {
+    color: rgba(255,255,255,0.85) !important;
     font-size: 17px !important;
     font-weight: 500 !important;
   }
