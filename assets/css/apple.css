@@ -72,6 +72,18 @@ h1, h2, h3, h4, h5, h6 {
   filter: brightness(0) invert(1);
 }
 
+/* Fix: the hamburger icon never got a light variant for the dark
+   over-hero header state (unlike the logo and nav links, which
+   already invert/lighten here) - it stayed dark-on-dark and was
+   nearly invisible while scrolling through the hero on index.html. */
+.mobile-nav-toggle {
+  transition: color 0.4s ease;
+}
+
+.header.over-hero .mobile-nav-toggle {
+  color: rgba(255,255,255,0.9) !important;
+}
+
 .header .navmenu a,
 .header .navmenu li a {
   font-size: 13px !important;
