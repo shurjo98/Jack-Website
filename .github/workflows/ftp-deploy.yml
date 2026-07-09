@@ -20,7 +20,7 @@ jobs:
           password: ${{ secrets.JACKMACHINERYBD_FTP_PASSWORD }}
           port: 21
           protocol: ftps
-          server-dir: /public_html/
+          server-dir: /
           state-name: .ftp-deploy-sync-state-2.json
           exclude: |
             **/.git*
