@@ -1533,7 +1533,8 @@ body.mobile-nav-active .header {
   line-height: 1.5;
 }
 
-.apple-feature.bg-dark .feature-checklist li { color: rgba(255,255,255,0.65); }
+.apple-feature.bg-dark .feature-checklist li,
+.cat-flagship .feature-checklist li { color: rgba(255,255,255,0.65); }
 
 .check-icon {
   width: 20px;
