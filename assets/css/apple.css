@@ -3109,6 +3109,18 @@ body.mobile-nav-active .header {
   box-shadow: 0 30px 70px rgba(0,0,0,0.16);
 }
 
+/* Scene 8's map graphic is nearly square, unlike the wide-landscape
+   illustrations used elsewhere - at width:100% it towers over the
+   text and bleeds past the viewport. Cap it to a sensible size and
+   center it in the column instead of stretching it full-width. */
+#chapter-8 .chapter-media img {
+  width: 100%;
+  max-width: 460px;
+  max-height: 520px;
+  object-fit: contain;
+  margin: 0 auto;
+}
+
 .chapter-num {
   position: absolute;
   top: -20px;
